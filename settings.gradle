@@ -1,0 +1,4 @@
+rootProject.name = 'blog4java'
+
+include '01_blog_main'
+include '00_demo'

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60000" debug="true">
+    <property name="LOG_BASEDIR" value="/ext/logs"/>
+    <property name="APP_Name" value="wxpay"/>
+    <contextName>${APP_Name}</contextName>
+    <appender name="stdoutLog" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="ALL">
+        <appender-ref ref="stdoutLog"/>
+    </root>
+</configuration>

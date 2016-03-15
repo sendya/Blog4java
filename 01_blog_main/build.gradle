@@ -1,0 +1,48 @@
+group 'com.simple'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+repositories {
+    maven {
+        url "http://www.oschina.net/news/44282/oschina-maven-repository/"
+    }
+}
+
+idea {
+    module {
+        iml {
+            inheritOutputDirs = true;
+        }
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+            'com.alibaba:druid:1.0.16',
+            'org.springframework:spring-aop:4.2.4.RELEASE',
+            'org.springframework:spring-context:4.2.4.RELEASE',
+            'org.springframework:spring-context-support:4.2.4.RELEASE',
+            'org.springframework:spring-jdbc:4.2.4.RELEASE',
+            'org.springframework:spring-webmvc:4.2.4.RELEASE',
+            'org.aspectj:aspectjrt:1.8.8',
+            'org.aspectj:aspectjweaver:1.8.8',
+            'mysql:mysql-connector-java:5.1.36',
+            'com.fasterxml.jackson.core:jackson-core:2.6.4',
+            'com.fasterxml.jackson.core:jackson-databind:2.6.4',
+            'com.fasterxml.jackson.core:jackson-annotations:2.6.4',
+            'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.6.4',
+    )
+    providedCompile("javax.servlet:javax.servlet-api:3.1.0")
+}

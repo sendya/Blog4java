@@ -13,7 +13,7 @@ configurations.all {
 
 repositories {
     maven {
-        url "http://www.oschina.net/news/44282/oschina-maven-repository/"
+        url "http://maven.oschina.net/content/groups/public/"
     }
 }
 

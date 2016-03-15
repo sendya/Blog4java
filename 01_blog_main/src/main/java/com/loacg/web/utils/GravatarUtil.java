@@ -39,20 +39,32 @@ public class GravatarUtil {
         HOSTS.add("https://gravatar.lug.ustc.edu.cn/avatar/");
     }
 
+    public static String getGravatar(String email) {
+        return getGravatar(email, "G");
+    }
+
+    public static String getGravatar(String email, String level) {
+        return getGravatar(email, level, false);
+    }
+
+    public static String getGravatar(String email, String level, boolean img) {
+        return getGravatar(email, "G", img, null);
+    }
+
     public static String getGravatar(String email, String level, boolean img, Integer heightWidth) {
         StringBuffer url = new StringBuffer()
                 .append(HOSTS.get(5));
         if(email == null && "".equals(email))
             return "";
+        if(heightWidth == null || heightWidth == 0)
+            heightWidth = 128;
+        if(level == null || "".equals(level))
+            level = "G";
 
         url.append(MD5Util.md5(email.toLowerCase()))
-           .append("?s=$s&d=$d&r=$r");
-
+           .append("?s="+heightWidth+"&d=mm&r=" + level);
 
         if(img) {
-            if(heightWidth == null || heightWidth == 0)
-                heightWidth = 128;
-
             String newUrl = "<img src=\"" + url.toString() + "\" width=\"" + heightWidth + "\" height=\"" + heightWidth + "\" />";
             return newUrl;
         }

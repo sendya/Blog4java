@@ -48,7 +48,7 @@ public class GravatarUtil {
     }
 
     public static String getGravatar(String email, String level, boolean img) {
-        return getGravatar(email, "G", img, null);
+        return getGravatar(email, level, img, null);
     }
 
     public static String getGravatar(String email, String level, boolean img, Integer heightWidth) {
